@@ -39,15 +39,16 @@ export default class Home extends Component {
 
   render() {
     const {movies} = this.state;
+    const {navigation} = this.props;
     const scrollX = new Animated.Value(0);
     let scrollOffset =new Animated.Value(0);
     return (
       <SafeAreaView style={styles.safeArea}>
         <StatusBar
-          barStyle={StatusBar.setBarStyle('light-content')}
+          barStyle={StatusBar.setBarStyle('dark-content')}
           backgroundColor={colors.primary}
         />
-        <Header />
+        <Header navigation={navigation} />
         <View style={{flex: 1, backgroundColor: colors.white}}>
           <View style={styles.flatlistContainer}>
             <ScrollView
@@ -170,7 +171,7 @@ const styles = StyleSheet.create({
   },
   safeArea: {
     flex: 1,
-    backgroundColor: colors.primary,
+    backgroundColor: colors.white,
   },
   contentContainer: {
     flex: 1,

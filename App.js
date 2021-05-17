@@ -1,7 +1,16 @@
 import React, {Component} from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {
+  Button,
+  Dimensions,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+
 import {Fragment} from 'react';
 import {Icon} from 'react-native-elements';
 import {colors} from './src/util/colors';
@@ -11,59 +20,94 @@ import Settings from './src/screens/settings/Settings';
 import Profile from './src/screens/profile/Profile';
 
 const Tab = createMaterialTopTabNavigator();
+const Drawer = createDrawerNavigator();
+const {width} = Dimensions.get('screen');
+
+function NotificationsScreen({navigation}) {
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Button onPress={() => navigation.goBack()} title="Go back home" />
+    </View>
+  );
+}
+
+const DrawerNavigation = () => {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator
+        drawerContentOptions={{
+          activeTintColor: colors.primary,
+        }}
+        drawerStyle={{
+          width: width * 0.55,
+        }}
+        drawerPosition={'right'}
+        initialRouteName="Home">
+        <Drawer.Screen name="Home" component={TabNavigator} />
+        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+};
+
+const TabNavigator = () => {
+  return (
+    <Fragment>
+      <Tab.Navigator
+        tabBarOptions={{
+          showIcon: true,
+          activeTintColor: colors.secondary,
+          inactiveTintColor: colors.primary,
+          indicatorStyle: {
+            backgroundColor: colors.white,
+          },
+        }}
+        screenOptions={({route}) => ({
+          tabBarIcon: ({focused}) => {
+            let iconName = '';
+            let iconType = '';
+            if (route.name === 'Home') {
+              iconName = 'home';
+              iconType = 'font-awesome';
+            } else if (route.name === 'Settings') {
+              iconName = 'support-agent';
+              iconType = 'material';
+            } else if (route.name === 'FAQ') {
+              iconName = 'head-question';
+              iconType = 'material-community';
+            } else if (route.name === 'Profile') {
+              iconName = 'user';
+              iconType = 'font-awesome';
+            }
+
+            return (
+              <Icon
+                name={iconName}
+                type={iconType}
+                size={24}
+                color={focused ? colors.secondary : colors.primary}
+              />
+            );
+          },
+        })}
+        initialRouteName={'Home'}
+        swipeEnabled={true}
+        tabBarPosition={'bottom'}>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Settings" component={Settings} />
+        <Tab.Screen name="FAQ" component={Faq} />
+        <Tab.Screen name="Profile" component={Profile} />
+      </Tab.Navigator>
+      <SafeAreaView style={{flex: 0, backgroundColor: colors.white}} />
+    </Fragment>
+  );
+};
 
 export default class App extends Component {
   render() {
     return (
       <Fragment>
-        <NavigationContainer>
-          <Tab.Navigator
-            tabBarOptions={{
-              showIcon: true,
-              activeTintColor: colors.secondary,
-              inactiveTintColor: colors.primary,
-              indicatorStyle: {
-                backgroundColor: colors.white,
-              },
-            }}
-            screenOptions={({route}) => ({
-              tabBarIcon: ({focused}) => {
-                let iconName = '';
-                let iconType = '';
-                if (route.name === 'Home') {
-                  iconName = 'home';
-                  iconType = 'font-awesome';
-                } else if (route.name === 'Settings') {
-                  iconName = 'support-agent';
-                  iconType = 'material';
-                } else if (route.name === 'FAQ') {
-                  iconName = 'head-question';
-                  iconType = 'material-community';
-                } else if (route.name === 'Profile') {
-                  iconName = 'user';
-                  iconType = 'font-awesome';
-                }
-
-                return (
-                  <Icon
-                    name={iconName}
-                    type={iconType}
-                    size={24}
-                    color={focused ? colors.secondary : colors.primary}
-                  />
-                );
-              },
-            })}
-            initialRouteName={'Home'}
-            swipeEnabled={true}
-            tabBarPosition={'bottom'}>
-            <Tab.Screen name="Home" component={Home} />
-            <Tab.Screen name="Settings" component={Settings} />
-            <Tab.Screen name="FAQ" component={Faq} />
-            <Tab.Screen name="Profile" component={Profile} />
-          </Tab.Navigator>
-        </NavigationContainer>
-        <SafeAreaView style={{flex: 0}} />
+        <DrawerNavigation />
       </Fragment>
     );
   }

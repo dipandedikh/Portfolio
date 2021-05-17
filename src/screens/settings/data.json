@@ -1,0 +1,26 @@
+[
+  {
+    "key": "1",
+    "value": "Receive Customer Calls",
+    "iconName": "support-agent",
+    "iconType": "material"
+  },
+  {
+    "key": "2",
+    "value": "Show Call Logs",
+    "iconName": "phone-call",
+    "iconType": "feather"
+  },
+  {
+    "key": "3",
+    "value": "Receive Help Calls",
+    "iconName": "question",
+    "iconType": "font-awesome"
+  },
+  {
+    "key": "4",
+    "value": "Vehicle Live Updates",
+    "iconName": "electric-bike",
+    "iconType": "material"
+  }
+]

@@ -53,7 +53,7 @@ export default class Accordian extends Component {
 
 const styles = StyleSheet.create({
   accordianContainer: {
-    marginBottom: 5,
+    marginTop: 5,
     backgroundColor: colors.background,
     paddingHorizontal: 13,
     marginHorizontal: 10,
