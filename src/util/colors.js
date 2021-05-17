@@ -5,4 +5,5 @@ export const colors = {
   white: '#FFFFFF',
   dotInactive: '#676767',
   dark_gray: '#5E5E5E',
+  light_gray: '#d3d3d3'
 };

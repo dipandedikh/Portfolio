@@ -1,21 +1,26 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {STRINGS} from '../../constants/constants';
+import {SafeAreaView, ScrollView, View} from 'react-native';
+import {
+  UserAvataWithInfo,
+  WalletInfo,
+  ListRows,
+  Header,
+} from './profile-components';
+import {styles} from './styles';
 
 export default class Profile extends Component {
   render() {
     return (
-      <View style={styles.constainer}>
-        <Text> {STRINGS.PROFILE} </Text>
-      </View>
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.container}>
+          <Header />
+          <ScrollView contentContainerStyle={styles.contentContainer}>
+            <UserAvataWithInfo />
+            <WalletInfo />
+            <ListRows />
+          </ScrollView>
+        </View>
+      </SafeAreaView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  constainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
