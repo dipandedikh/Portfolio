@@ -1,0 +1,38 @@
+[
+  {
+    "key": "1",
+    "icon": "command",
+    "type": "feather",
+    "color": "#EFF1DB"
+  },
+  {
+    "key": "2",
+    "icon": "check-circle",
+    "type": "feather",
+    "color": "#FFD4DB"
+  },
+  {
+    "key": "3",
+    "icon": "check-square",
+    "type": "feather",
+    "color": "#D3B5E5"
+  },
+  {
+    "key": "4",
+    "icon": "cloud-drizzle",
+    "type": "feather",
+    "color": "#BBE7FE"
+  },
+  {
+    "key": "5",
+    "icon": "coffee",
+    "type": "feather",
+    "color": "#BD97CB"
+  },
+  {
+    "key": "6",
+    "icon": "columns",
+    "type": "feather",
+    "color": "#5E376D"
+  }
+]
