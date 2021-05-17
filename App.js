@@ -18,18 +18,11 @@ import Faq from './src/screens/faq/Faq';
 import Home from './src/screens/home/Home';
 import Settings from './src/screens/settings/Settings';
 import Profile from './src/screens/profile/Profile';
+import Notifications from './src/screens/notifications/Notifications';
 
 const Tab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
 const {width} = Dimensions.get('screen');
-
-function NotificationsScreen({navigation}) {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Button onPress={() => navigation.goBack()} title="Go back home" />
-    </View>
-  );
-}
 
 const DrawerNavigation = () => {
   return (
@@ -44,7 +37,7 @@ const DrawerNavigation = () => {
         drawerPosition={'right'}
         initialRouteName="Home">
         <Drawer.Screen name="Home" component={TabNavigator} />
-        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+        <Drawer.Screen name="Notifications" component={Notifications} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

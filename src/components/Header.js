@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {Icon} from 'react-native-elements';
+import {Badge, Icon} from 'react-native-elements';
 import {colors} from '../util/colors';
 
 const {height, width} = Dimensions.get('screen');
@@ -20,9 +20,9 @@ export default class Header extends Component {
     };
   }
 
-  openDrawer = () => {
+  goToNotifications = () => {
     const {navigation} = this.props;
-    navigation.openDrawer();
+    navigation.navigate("Notifications");
   };
 
   onPressChartButton = () => {
@@ -93,11 +93,16 @@ export default class Header extends Component {
         </View>
         <View style={headerStyles.rightElementContainer}>
           <Icon
-            onPress={this.openDrawer}
-            type="font-awesome"
-            name="list"
-            color={colors.primary}
+            onPress={this.goToNotifications}
+            type={'ionicon'}
+            name={'notifications'}
             size={24}
+            color={colors.primary}
+          />
+          <Badge
+            value="7"
+            status="primary"
+            containerStyle={headerStyles.badgeStyle}
           />
         </View>
       </View>
@@ -106,6 +111,12 @@ export default class Header extends Component {
 }
 
 const headerStyles = StyleSheet.create({
+  badgeStyle: {
+    position: 'absolute',
+    top: 15,
+    right: 0,
+  },
+
   middleContainer: {
     flex: 1,
     justifyContent: 'center',
