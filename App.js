@@ -19,6 +19,7 @@ import Home from './src/screens/home/Home';
 import Settings from './src/screens/settings/Settings';
 import Profile from './src/screens/profile/Profile';
 import Notifications from './src/screens/notifications/Notifications';
+import Splash from './src/screens/splash/Splash';
 
 const Tab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -97,12 +98,24 @@ const TabNavigator = () => {
 };
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+    };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        loading: false,
+      });
+    }, 3000);
+  }
+
   render() {
-    return (
-      <Fragment>
-        <DrawerNavigation />
-      </Fragment>
-    );
+    const {loading} = this.state;
+    return <Fragment>{loading ? <Splash /> : <DrawerNavigation />}</Fragment>;
   }
 }
 

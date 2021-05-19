@@ -56,6 +56,7 @@ export default class Home extends Component {
                 flexGrow: 1,
               }}>
               <Animated.FlatList
+                key={"Animated_Flatlist"}
                 onScroll={Animated.event(
                   [{nativeEvent: {contentOffset: {x: scrollX}}}],
                   {useNativeDriver: true},
@@ -78,7 +79,7 @@ export default class Home extends Component {
                   return <RectanglesCards key={index} item={item} />;
                 }}
               />
-              <View style={{justifyContent: 'center', alignItems: 'center'}}>
+              <View key={"dots"} style={{justifyContent: 'center', alignItems: 'center'}}>
                 <Dots
                   data={movies}
                   scrollX={scrollX}
@@ -92,8 +93,9 @@ export default class Home extends Component {
                   wormDot
                 />
               </View>
-              <NewMoviesTitle />
+              <NewMoviesTitle key="movies title"/>
               <FlatList
+                key="squareCards"
                 horizontal
                 pagingEnabled
                 contentContainerStyle={{
@@ -108,6 +110,7 @@ export default class Home extends Component {
               />
               <TrendingTitle />
               <FlatList
+                key={"saqureCardColumn"}
                 style={{
                   margin: 5,
                 }}
