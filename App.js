@@ -1,15 +1,10 @@
 import React, {Component} from 'react';
-import {
-  Button,
-  Dimensions,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Dimensions, SafeAreaView, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
+import auth from '@react-native-firebase/auth';
 
 import {Fragment} from 'react';
 import {Icon} from 'react-native-elements';
@@ -20,9 +15,12 @@ import Settings from './src/screens/settings/Settings';
 import Profile from './src/screens/profile/Profile';
 import Notifications from './src/screens/notifications/Notifications';
 import Splash from './src/screens/splash/Splash';
+import Login from './src/screens/login/Login';
 
 const Tab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
+
 const {width} = Dimensions.get('screen');
 
 const DrawerNavigation = () => {
@@ -43,6 +41,19 @@ const DrawerNavigation = () => {
     </NavigationContainer>
   );
 };
+
+function LoginStack() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen name="Login" component={Login} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
 const TabNavigator = () => {
   return (
@@ -73,7 +84,6 @@ const TabNavigator = () => {
               iconName = 'user';
               iconType = 'font-awesome';
             }
-
             return (
               <Icon
                 name={iconName}
@@ -102,6 +112,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       loading: true,
+      loggedIn: false
     };
   }
 
@@ -111,11 +122,36 @@ export default class App extends Component {
         loading: false,
       });
     }, 3000);
+    this.unsubscribe = auth().onAuthStateChanged(async (user) => { 
+      if(user){
+        this.setState({
+          loggedIn: true,
+        });
+      } else {
+        this.setState({
+          loggedIn: false,
+        });
+      }
+    })
+  }
+
+  componentWillUnmount(){
+    this.unsubscribe();
   }
 
   render() {
-    const {loading} = this.state;
-    return <Fragment>{loading ? <Splash /> : <DrawerNavigation />}</Fragment>;
+    const {loading, loggedIn} = this.state;
+    return (
+      <Fragment>
+        {loading ? (
+          <Splash />
+        ) : loggedIn ? (
+          <DrawerNavigation />
+        ) : (
+          <LoginStack />
+        )}
+      </Fragment>
+    );
   }
 }
 

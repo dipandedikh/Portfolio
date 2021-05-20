@@ -29,10 +29,4 @@ export const data = [
     iconType: 'font-awesome',
     text: 'Refer & Earn',
   },
-  {
-    key: '6',
-    iconName: 'logout',
-    iconType: 'material',
-    text: 'Logout',
-  },
 ];

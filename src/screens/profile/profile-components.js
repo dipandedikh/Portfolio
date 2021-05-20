@@ -38,7 +38,7 @@ export function Header() {
   );
 }
 
-export function UserAvataWithInfo() {
+export function UserAvatarWithInfo({userdata}) {
   return (
     <Fragment>
       <View style={styles.avatarContainer}>
@@ -50,7 +50,7 @@ export function UserAvataWithInfo() {
           activeOpacity={0.7}
         />
         <View style={{paddingHorizontal: 16}}>
-          <Text style={styles.name}>Dipan Sharma</Text>
+          <Text style={styles.name}>{userdata.name}</Text>
           <Text style={styles.userPosition}>Software Engineer</Text>
         </View>
       </View>
@@ -62,7 +62,7 @@ export function UserAvataWithInfo() {
             size={26}
             color={colors.dark_gray}
           />
-          <Text style={styles.rowContainerText}>+91 9797516808</Text>
+          <Text style={styles.rowContainerText}>{userdata.phone}</Text>
         </View>
         <View style={{...styles.rowContainer, paddingTop: 12}}>
           <Icon
