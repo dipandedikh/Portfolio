@@ -14,6 +14,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		233430DE2650324800842D93 /* portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233430DD2650324800842D93 /* portfolio.swift */; };
 		2335544C2656342E00034DEA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2335544B2656342E00034DEA /* GoogleService-Info.plist */; };
+		2335544E26568DE100034DEA /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2335544D26568DE100034DEA /* AppCenter-Config.plist */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		E061A915D67579CA1B2FA618 /* libPods-Portfolio-PortfolioTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3666D6B1F4D25636EBCBE4A /* libPods-Portfolio-PortfolioTests.a */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		233430DC2650324800842D93 /* Portfolio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Portfolio-Bridging-Header.h"; sourceTree = "<group>"; };
 		233430DD2650324800842D93 /* portfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = portfolio.swift; sourceTree = "<group>"; };
 		2335544B2656342E00034DEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Portfolio/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2335544D26568DE100034DEA /* AppCenter-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AppCenter-Config.plist"; path = "Portfolio/AppCenter-Config.plist"; sourceTree = "<group>"; };
 		3652A1E5CDF433E6F6D27605 /* Pods-Portfolio-PortfolioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Portfolio-PortfolioTests.release.xcconfig"; path = "Target Support Files/Pods-Portfolio-PortfolioTests/Pods-Portfolio-PortfolioTests.release.xcconfig"; sourceTree = "<group>"; };
 		380E65185DDC45E190D0E239 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		38C82C0AE26C4B1DAC798456 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		13B07FAE1A68108700A75B9A /* Portfolio */ = {
 			isa = PBXGroup;
 			children = (
+				2335544D26568DE100034DEA /* AppCenter-Config.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				2335544E26568DE100034DEA /* AppCenter-Config.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				2335544C2656342E00034DEA /* GoogleService-Info.plist in Resources */,
 			);
