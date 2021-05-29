@@ -59,6 +59,7 @@ export default class Login extends Component {
         });
       }, 2000);
     } catch (error) {
+      console.log("Error", error);
       this.setState({
         loading: false,
       });
@@ -215,7 +216,7 @@ export default class Login extends Component {
               />
             </View>
             <View style={styles.headerContainer}>
-              <Text style={styles.headerText}>Welcome to 4Smile</Text>
+              <Text style={styles.headerText}>Love Your Smile</Text>
             </View>
             <View style={styles.inputsContainer}>
               <CustomInput

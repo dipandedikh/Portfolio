@@ -1,13 +1,12 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {Dimensions, SafeAreaView, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import auth from '@react-native-firebase/auth';
-
-import {Fragment} from 'react';
 import {Icon} from 'react-native-elements';
+
 import {colors} from './src/util/colors';
 import Faq from './src/screens/faq/Faq';
 import Home from './src/screens/home/Home';
@@ -16,6 +15,7 @@ import Profile from './src/screens/profile/Profile';
 import Notifications from './src/screens/notifications/Notifications';
 import Splash from './src/screens/splash/Splash';
 import Login from './src/screens/login/Login';
+import ImageGallery from './src/screens/animatedFlatlist/ImageGallery';
 
 const Tab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -37,6 +37,7 @@ const DrawerNavigation = () => {
         initialRouteName="Home">
         <Drawer.Screen name="Home" component={TabNavigator} />
         <Drawer.Screen name="Notifications" component={Notifications} />
+        <Drawer.Screen name="Image Gallery" component={ImageGallery} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
@@ -112,7 +113,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       loading: true,
-      loggedIn: false
+      loggedIn: false,
     };
   }
 
@@ -122,8 +123,8 @@ export default class App extends Component {
         loading: false,
       });
     }, 3000);
-    this.unsubscribe = auth().onAuthStateChanged(async (user) => { 
-      if(user){
+    this.unsubscribe = auth().onAuthStateChanged(async user => {
+      if (user) {
         this.setState({
           loggedIn: true,
         });
@@ -132,10 +133,10 @@ export default class App extends Component {
           loggedIn: false,
         });
       }
-    })
+    });
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.unsubscribe();
   }
 
