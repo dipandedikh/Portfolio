@@ -4,4 +4,4 @@ I am comfortable to use Javascript or Typescript to develop any React/React Nati
 
 I Love to create animations in react native applications, adding custom logics and can create complex UI.
 
-![Image Gallery](https://media.giphy.com/media/SyPGu2Mj8XvAD7dTqZ/giphy.gif)![Login Page](https://media.giphy.com/media/SkjBraUGVlKhAaAinh/giphy.gif)
+![Image Gallery](https://media.giphy.com/media/SyPGu2Mj8XvAD7dTqZ/giphy.gif)![Login Page](https://media.giphy.com/media/SkjBraUGVlKhAaAinh/giphy.gif) <img width="220" alt="portfolio_view" src="https://i.ibb.co/rw1cGyk/Simulator-Screen-Shot-i-Phone-11-Pro-Max-2021-06-04-at-16-59-49.png">
