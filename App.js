@@ -16,6 +16,7 @@ import Notifications from './src/screens/notifications/Notifications';
 import Splash from './src/screens/splash/Splash';
 import Login from './src/screens/login/Login';
 import ImageGallery from './src/screens/animatedFlatlist/ImageGallery';
+import MapScreen from './src/screens/maps/MapScreen';
 
 const Tab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -38,6 +39,7 @@ const DrawerNavigation = () => {
         <Drawer.Screen name="Home" component={TabNavigator} />
         <Drawer.Screen name="Notifications" component={Notifications} />
         <Drawer.Screen name="Image Gallery" component={ImageGallery} />
+        <Drawer.Screen name="Map Screen" component={MapScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
